@@ -1,21 +1,164 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
+
 html {
-  background-color: #f1f5f9;
+  background-color: #ebe5ec;
   font-family: sans-serif;
 }
 
 body {
   margin: 0 auto;
   width: 100%;
-  max-width: 80ch;
-  padding: 1rem;
+  height: 100dvh;
   line-height: 1.5;
+  display: grid;
+  align-items: center;
+  grid-template-rows: auto 1fr auto;
 }
 
-* {
-  box-sizing: border-box;
+main {
+  height: 100%;
+  padding-inline: 22rem;
+}
+
+header,
+footer {
+  color: white;
+  padding-block: 1rem;
+  background-image: linear-gradient(to bottom, #671739 0%, #221217 100%);
+}
+
+footer {
+  display: grid;
+  place-items: center;
+
+  a {
+    color: rgb(137, 137, 137);
+    text-decoration: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 1rem 0;
+  text-align: center;
 }
 
 h1 {
-  margin: 1rem 0;
   font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+em {
+  color: #570b3b;
+}
+
+.menu {
+  display: none;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-evenly;
+}
+
+p {
+  margin-block: 14px;
+}
+
+.finished-template-syntax-message {
+  text-align: 2rem;
+}
+
+:has(.menu[aria-expanded="true"]) .nav-links {
+  display: unset;
+}
+
+@media screen and (width < 920px) {
+  .menu {
+    transition: background 0.2s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.041);
+    box-shadow: 0px -4px 8px -6px white inset;
+    border-radius: 5px;
+    margin-bottom: 14px;
+    border: none;
+    color: #fff;
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    anchor-name: --menu-button;
+
+    &:hover {
+      cursor: pointer;
+
+      background-color: rgba(255, 255, 255, 0.074);
+    }
+  }
+  nav {
+    width: 210px;
+    color: black;
+    position: fixed;
+    position-anchor: --menu-button;
+    anchor-scope: initial;
+    justify-self: anchor-center;
+    top: anchor(bottom);
+    right: anchor(right);
+    left: anchor(right);
+    z-index: 1000;
+
+    ul {
+      max-width: 40%;
+      border-radius: 5px;
+      background-color: #302b2d;
+      gap: 10px;
+      flex-direction: column;
+
+      li {
+        a {
+          box-shadow: none;
+          color: #000;
+          background-color: white;
+        }
+      }
+    }
+  }
+
+  main {
+    padding-inline: 8rem;
+  }
+}
+
+@media screen and (920px < width < 1220px) {
+  main {
+    padding-inline: 14rem;
+  }
 }

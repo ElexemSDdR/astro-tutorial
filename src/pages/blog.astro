@@ -1,30 +1,28 @@
 ---
-import '@/styles/global.css'
+import Layout from "@/layouts/Layout.astro";
+import "@/styles/global.css";
 
-const pageTitle = "Blog"
+const pageTitle = "Blog";
+
+const posts = ['post-1', 'post-2', 'post-3',]
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-	</head>
-	<body>
-    <a href="/">Home</a>
-    <a href="/about">About me</a>
-		<h1>{pageTitle}</h1>
-    <h2>Welcome to my blog</h2>
-    <p>This is the blog section of the Astro oficial tutorial, being this the third page created</p>
-    <p>This supposed to be my posts about my journey learning Astro, so take a look of this</p>
-    <h3>See the incoming posts here</h3>
-    <ul>
-      <li><a href="/posts/post-1">Post 1</a></li>
-      <li><a href="/posts/post-2">Post 2</a></li>
-      <li><a href="/posts/post-3">Post 3</a></li>
-    </ul>
-	</body>
-</html>
+<Layout title={pageTitle}>
+      <h2>Welcome to my blog</h2>
+      <p>
+        This is the blog section of the Astro oficial tutorial, being this the
+        third page created
+      </p>
+      <p>
+        This supposed to be my posts about my journey learning Astro, so take a
+        look of this
+      </p>
+      <h3>See the incoming posts here</h3>
+      <ul>
+        {
+          posts.map((post, index) => (
+            <li><a href=`/posts/${post}` >Post {index + 1}</a></li>
+          ))
+        }
+      </ul>
+</Layout>

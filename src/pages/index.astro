@@ -1,21 +1,12 @@
 ---
-import '@/styles/global.css'
+import Layout from "@/layouts/Layout.astro";
+import "@/styles/global.css";
 
-const pageTitle = "Astro tutorial"
+const pageTitle = "Astro tutorial";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-	</head>
-	<body>
-		<h1>{pageTitle}</h1>
-    <span>Go here to know <a href="/about">about me</a></span>
-    <span>Or visit this little <a href="/blog">blog</a></span>
-	</body>
-</html>
+<Layout title={pageTitle}>
+  <h2>Welcome</h2>
+  <p>This is my blog made in the tutorial of Astro</p>
+  <p>You are welcome to navigate between the pages and see its content</p>
+</Layout>

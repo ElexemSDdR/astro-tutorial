@@ -1,14 +1,10 @@
 ---
-import '@/styles/global.css'
+import Layout from "@/layouts/Layout.astro";
+import "@/styles/global.css";
 
-const pageTitle = "About me"
+const pageTitle = "About me";
 
-const hobbies = [
-  "programming",
-  "guitar",
-  "write",
-  "listening to music",
-]
+const hobbies = ["programming", "guitar", "write", "listening to music"];
 
 const skills = [
   "HTML",
@@ -17,8 +13,8 @@ const skills = [
   "JavaScript",
   "Tailwind",
   "AstroJS",
-  "Angular"
-]
+  "Angular",
+];
 
 const aboutMe = {
   name: "Valentín",
@@ -30,77 +26,62 @@ const aboutMe = {
   portfolio: "https://portfolio-elexemsddrs-projects.vercel.app/",
   hobbies,
   skills,
-}
+};
 
-const tutorialTemplateJsFinished = true
-
-const skillColor = "crimson"
-const fontWeight = "bold"
-const textCase = "uppercase"
+const tutorialTemplateJsFinished = true;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-    <style define:vars={{skillColor, fontWeight, textCase}}>
-      h1 {
-        color: purple;
-        font-size: 4rem;
+<Layout title={pageTitle}>
+  <h3>Check my good site with Astro</h3>
+  <article class="introduction">
+    <p>
+      This is the about section of the Astro oficial tutorial, being this the
+      second page created.
+    </p>
+    <p>
+      Well I'm <strong>{aboutMe.name} {aboutMe.surname}</strong>, I'm {
+        aboutMe.age
+      } and I'm studying to be a <em>{aboutMe.ocupation}</em>, for now I'm still
+      a {aboutMe.level}.
+    </p>
+    <p>
+      You can see my <a href={aboutMe.portfolio} target="_blank"
+        >portfolio here</a
+      >.
+    </p>
+    <div>
+      {
+        aboutMe.hobbies.length > 2 ? (
+          <p>I have some hobbies like</p>
+        ) : (
+          <p>I don't have any hobby</p>
+        )
       }
-
-      .skill {
-        color: var(--skillColor);
-        list-style: none;
-        font-weight: var(--fontWeight);
-        text-transform: var(--textCase);
-      }
-
-      .skills-container {
-        display: flex;
-        justify-content: space-around;
-      }
-    </style>
-    <title>{pageTitle}</title>
-	</head>
-	<body>
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/blog">Blog</a>
-          </li>
-        </ul>
-      </nav>
-      <h1>{pageTitle}</h1>
-      <h3>Check my good site with Astro</h3>
-    </header>
-    <article class="introduction">
-      <p>This is the about section of the Astro oficial tutorial, being this the second page created.</p>
-      <p>Well I'm <strong>{aboutMe.name} {aboutMe.surname}</strong>, I'm {aboutMe.age} and I'm studying to be a <em>{aboutMe.ocupation}</em>, for now I'm still a {aboutMe.level}.</p>
-      <p>You can see my <a href={aboutMe.portfolio} target="_blank">portfolio here</a>.</p>
-      <div class="hobbies">
-        {aboutMe.hobbies.length > 2 ? <p>I have some hobbies like</p> : <p>I don't have any hobby</p>}
-        <ul>
-          {
-          aboutMe.hobbies.length > 2 && aboutMe.hobbies.map(hobby => (
-          hobby === "programming" ? <li>{hobby} (yes, I love programming as hobby)</li> : <li>{hobby}</li>
-          ))
-          }
-        </ul>
-      </div>
-      <div class="skills">
-        <h3>I'm specially good at</h3>
-        <ul class="skills-container">
-          { aboutMe.skills.map(skill => <li class="skill">{skill}</li>) }
-        </ul>
-      </div>
-    </article>
-    {tutorialTemplateJsFinished && <strong>I just finished the astro template syntax tutorial</strong>}
-	</body>
-</html>
+      <ul class="hobbies">
+        {
+          aboutMe.hobbies.length > 2 &&
+            aboutMe.hobbies.map((hobby) =>
+              hobby === "programming" ? (
+                <li>{hobby} (yes, I love programming as hobby)</li>
+              ) : (
+                <li>{hobby}</li>
+              ),
+            )
+        }
+      </ul>
+    </div>
+    <div class="skills">
+      <h3>I'm specially good at</h3>
+      <ul class="skills-container">
+        {aboutMe.skills.map((skill) => <li class="skill">{skill}</li>)}
+      </ul>
+    </div>
+  </article>
+  {
+    tutorialTemplateJsFinished && (
+      <strong class="finished-template-syntax-message">
+        I just finished the astro template syntax tutorial
+      </strong>
+    )
+  }
+</Layout>

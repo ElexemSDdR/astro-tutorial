@@ -1,0 +1,36 @@
+---
+import Menu from "@/components/Menu.astro";
+import Navigation from "@/components/Navigation.astro";
+
+interface Props {
+  pageTitle: string;
+}
+
+const { pageTitle } = Astro.props;
+---
+
+<header>
+  <h1>{pageTitle}</h1>
+  <Menu />
+  <Navigation />
+</header>
+
+<style>
+  header {
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(1fr, 2);
+    place-items: center;
+    padding: 0;
+    position: relative;
+    anchor-name: --header;
+  }
+
+  @media screen and (width < 920px) {
+    header {
+      .menu[aria-expanded="false"] + nav {
+        visibility: hidden;
+      }
+    }
+  }
+</style>
