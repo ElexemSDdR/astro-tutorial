@@ -4,15 +4,16 @@ import Navigation from "@/components/Navigation.astro";
 
 interface Props {
   pageTitle: string;
+  isOnMdLayout: boolean;
 }
 
-const { pageTitle } = Astro.props;
+const { pageTitle, isOnMdLayout } = Astro.props;
 ---
 
 <header>
   <h1>{pageTitle}</h1>
   <Menu />
-  <Navigation />
+  <Navigation isOnMdLayout={isOnMdLayout} />
 </header>
 
 <style>

@@ -1,0 +1,54 @@
+---
+const { frontmatter } = Astro.props;
+import Header from "@/components/Header.astro";
+import "@/styles/global.css";
+
+const { title, image, author } = frontmatter;
+const { url, alt } = image;
+
+const bgImageUrl = `url("${url}")`;
+
+console.log(bgImageUrl);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    <style define:vars={{ bgImageUrl }}>
+      .author {
+        font-size: 1.3rem;
+      }
+
+      html {
+        color: white;
+        background: var(--bgImageUrl) center center / cover no-repeat;
+      }
+
+      body {
+        backdrop-filter: brightness(50%);
+      }
+
+      a {
+        color: aqua;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <Header pageTitle={title} isOnMdLayout={true} />
+    <main>
+      <p class="author">Written by <strong>{author}</strong></p>
+      <slot />
+    </main>
+    <script>
+      import "@/services/menu.js";
+    </script>
+  </body>
+</html>
