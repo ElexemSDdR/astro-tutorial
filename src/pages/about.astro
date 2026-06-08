@@ -1,5 +1,36 @@
 ---
+const pageTitle = "About me"
 
+const hobbies = [
+  "programming",
+  "guitar",
+  "write",
+  "listening to music",
+]
+
+const skills = [
+  "HTML",
+  "CSS",
+  "TypeScript",
+  "JavaScript",
+  "Tailwind",
+  "AstroJS",
+  "Angular"
+]
+
+const aboutMe = {
+  name: "Valentín",
+  surname: "Domínguez Tapia",
+  country: "Argentina",
+  age: 18,
+  ocupation: "Web developer",
+  level: "Junior",
+  portfolio: "https://portfolio-elexemsddrs-projects.vercel.app/",
+  hobbies,
+  skills,
+}
+
+const tutorialTemplateJsFinished = true
 ---
 
 <html lang="en">
@@ -8,14 +39,44 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>About</title>
+    <title>{pageTitle}</title>
 	</head>
 	<body>
-    <a href="/">Home</a>
-		<h1>About me</h1>
-    <h3>Check my good site with Astro</h3>
-    <p>This is the about section of the Astro oficial tutorial, being this the second page created</p>
-    <p>Well I'm <strong>Valentín</strong>, a <em>junior web developer</em></p>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/blog">Blog</a>
+          </li>
+        </ul>
+      </nav>
+      <h1>{pageTitle}</h1>
+      <h3>Check my good site with Astro</h3>
+    </header>
+    <article class="introduction">
+      <p>This is the about section of the Astro oficial tutorial, being this the second page created.</p>
+      <p>Well I'm <strong>{aboutMe.name} {aboutMe.surname}</strong>, I'm {aboutMe.age} and I'm studying to be a <em>{aboutMe.ocupation}</em>, for now I'm still a {aboutMe.level}.</p>
+      <p>You can see my <a href={aboutMe.portfolio} target="_blank">portfolio here</a>.</p>
+      <div class="hobbies">
+        {aboutMe.hobbies.length > 2 ? <p>I have some hobbies like</p> : <p>I don't have any hobby</p>}
+        <ul>
+          {
+          aboutMe.hobbies.length > 2 && aboutMe.hobbies.map(hobby => (
+          hobby === "programming" ? <li>{hobby} (yes, I love programming as hobby)</li> : <li>{hobby}</li>
+          ))
+          }
+        </ul>
+      </div>
+      <div class="skills">
+        <h3>I'm specially good at</h3>
+        <ul>
+          { aboutMe.skills.map(skill => <li>{skill}</li>) }
+        </ul>
+      </div>
+    </article>
+    {tutorialTemplateJsFinished && <strong>I just finished the astro template syntax tutorial</strong>}
 	</body>
 </html>
