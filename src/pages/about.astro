@@ -1,4 +1,6 @@
 ---
+import '@/styles/global.css'
+
 const pageTitle = "About me"
 
 const hobbies = [
@@ -31,6 +33,10 @@ const aboutMe = {
 }
 
 const tutorialTemplateJsFinished = true
+
+const skillColor = "crimson"
+const fontWeight = "bold"
+const textCase = "uppercase"
 ---
 
 <html lang="en">
@@ -39,6 +45,24 @@ const tutorialTemplateJsFinished = true
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
+    <style define:vars={{skillColor, fontWeight, textCase}}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+
+      .skill {
+        color: var(--skillColor);
+        list-style: none;
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
+      }
+
+      .skills-container {
+        display: flex;
+        justify-content: space-around;
+      }
+    </style>
     <title>{pageTitle}</title>
 	</head>
 	<body>
@@ -72,8 +96,8 @@ const tutorialTemplateJsFinished = true
       </div>
       <div class="skills">
         <h3>I'm specially good at</h3>
-        <ul>
-          { aboutMe.skills.map(skill => <li>{skill}</li>) }
+        <ul class="skills-container">
+          { aboutMe.skills.map(skill => <li class="skill">{skill}</li>) }
         </ul>
       </div>
     </article>
