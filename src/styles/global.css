@@ -4,8 +4,9 @@
   --foreground-light: black;
   --strong-light: rgb(37, 8, 37);
   --em-light: #570b3b;
-  --links-light: rgb(57, 24, 167);
+  --links-light: rgb(13, 21, 127);
   --tags-links-light: rgb(16, 77, 16);
+  --bg-header-light: linear-gradient(to bottom, #d72f75 0%, #7d4456 100%);
 
   /* Dark variables */
   --bg-dark: #36323f;
@@ -14,8 +15,7 @@
   --em-dark: #bb78ff;
   --links-dark: rgb(170, 146, 249);
   --tags-links-dark: rgb(129, 249, 129);
-
-  color-scheme: light dark;
+  --bg-header-dark: linear-gradient(to bottom, #671739 0%, #221217 100%);
 }
 
 * {
@@ -38,6 +38,11 @@
 
 html {
   font-family: sans-serif;
+  color-scheme: only light;
+}
+
+html.dark {
+  color-scheme: only dark;
 }
 
 body {
@@ -128,10 +133,6 @@ li {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   font-size: 1.2rem;
-
-  li {
-    list-style-type: none;
-  }
 }
 
 main {
@@ -143,12 +144,14 @@ header,
 footer {
   color: white;
   padding-block: 1rem;
-  background-image: linear-gradient(to bottom, #671739 0%, #221217 100%);
+  background-image: light-dark(var(--bg-header-light), var(--bg-header-dark));
 }
 
 footer {
   display: grid;
   place-items: center;
+  padding-block: 0.1rem;
+  font-size: 0.9rem;
 }
 
 h1,
