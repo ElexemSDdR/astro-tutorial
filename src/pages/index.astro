@@ -1,12 +1,16 @@
 ---
+import Greeting from "@/components/Greetings";
 import Layout from "@/layouts/Layout.astro";
 import "@/styles/global.css";
 
 const pageTitle = "Home | Astro tutorial";
+const messages = ["Hello", "Buenass", "Welcome", "Bienvenido", "Ciao"];
 ---
 
 <Layout title={pageTitle} description="Index of the tutorial's page">
-  <h2>Welcome</h2>
-  <p>This is my blog made in the tutorial of Astro</p>
-  <p>You are welcome to navigate between the pages and see its content</p>
+  <section class="index-greetings">
+    <Greeting messages={messages} client:load />
+    <p>This is my blog made in the tutorial of Astro</p>
+    <p>You are welcome to navigate between the pages and see its content</p>
+  </section>
 </Layout>

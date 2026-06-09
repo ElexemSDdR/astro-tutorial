@@ -20,7 +20,7 @@ const allBlogs = Object.values(
     of this
   </p>
   <h3>See the incoming posts here</h3>
-  <ul>
+  <ul class="blogs-list">
     {
       allBlogs.map((post: any) => (
         <BlogPostLink url={post.url} title={post.frontmatter.title} />

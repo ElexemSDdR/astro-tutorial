@@ -1,6 +1,7 @@
 ---
 import Menu from "@/components/Menu.astro";
 import Navigation from "@/components/Navigation.astro";
+import ThemeIcon from "@/components/ThemeIcon.astro";
 
 interface Props {
   pageTitle: string;
@@ -12,6 +13,7 @@ const { pageTitle, isOnMdLayout } = Astro.props;
 
 <header>
   <h1>{pageTitle}</h1>
+  <ThemeIcon />
   <Menu />
   <Navigation isOnMdLayout={isOnMdLayout} />
 </header>

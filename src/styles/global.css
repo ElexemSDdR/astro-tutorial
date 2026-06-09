@@ -16,6 +16,36 @@
     sans-serif;
 }
 
+.index-greetings {
+  display: flex;
+  flex-direction: column;
+
+  button.greetings-button {
+    padding: 8px 12px;
+    border: none;
+    font-weight: semibold;
+    font-size: 0.9rem;
+    margin-inline: auto;
+    width: fit-content;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.349);
+    box-shadow:
+      4px 6px 12px -10px black,
+      -2px -4px 12px -10px black inset;
+    transition:
+      box-shadow 0.1s linear,
+      scale 0.1s linear;
+
+    &:hover {
+      cursor: pointer;
+      scale: 103%;
+      box-shadow:
+        8px 8px 12px -10px black,
+        -3px -4px 12px -10px black inset;
+    }
+  }
+}
+
 html {
   font-family: sans-serif;
   background: #efefef;
@@ -29,6 +59,18 @@ body {
   display: grid;
   align-items: center;
   grid-template-rows: auto 1fr auto;
+}
+
+.blogs-list {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  font-size: 1.2rem;
+
+  li {
+    list-style-type: none;
+  }
 }
 
 main {
