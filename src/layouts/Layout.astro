@@ -1,16 +1,14 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
+import "@/styles/global.css";
 
 interface Props {
   title: string;
+  isOnMdLayout?: boolean;
 }
 
-const { title } = Astro.props;
-
-const skillColor = "crimson";
-const fontWeight = "bold";
-const textCase = "uppercase";
+const { title, isOnMdLayout = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -22,22 +20,10 @@ const textCase = "uppercase";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <style is:global define:vars={{ skillColor, fontWeight, textCase }}>
-      .hobbies {
-        padding-inline: 3rem;
-      }
-
-      .skill {
-        color: var(--skillColor);
-        list-style: none;
-        font-weight: var(--fontWeight);
-        text-transform: var(--textCase);
-      }
-    </style>
+    <slot name="styles" />
   </head>
   <body>
-    <Header pageTitle={title} isOnMdLayout={false} />
-
+    <Header pageTitle={title} isOnMdLayout={isOnMdLayout} />
     <main>
       <slot />
     </main>

@@ -17,8 +17,8 @@
 }
 
 html {
-  background-color: #ebe5ec;
   font-family: sans-serif;
+  background: #efefef;
 }
 
 body {
@@ -92,13 +92,6 @@ em {
 
 p {
   margin-block: 14px;
-}
-
-.finished-template-syntax-message {
-  font-size: 0.8rem;
-  display: flex;
-  justify-content: center;
-  margin-top: 2.5rem;
 }
 
 :has(.menu[aria-expanded="true"]) .nav-links {

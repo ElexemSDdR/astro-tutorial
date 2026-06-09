@@ -29,9 +29,32 @@ const aboutMe = {
 };
 
 const tutorialTemplateJsFinished = true;
+
+const skillColor = "crimson";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <Layout title={pageTitle}>
+  <style slot="styles" define:vars={{ skillColor, fontWeight, textCase }}>
+    .hobbies {
+      padding-inline: 3rem;
+    }
+
+    .skill {
+      color: var(--skillColor);
+      list-style: none;
+      font-weight: var(--fontWeight);
+      text-transform: var(--textCase);
+    }
+
+    .finished-template-syntax-message {
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: center;
+      margin-top: 2.5rem;
+    }
+  </style>
   <h3>Check my good site with Astro</h3>
   <article class="introduction">
     <p>
