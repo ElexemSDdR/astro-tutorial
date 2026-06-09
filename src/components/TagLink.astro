@@ -6,37 +6,6 @@ interface Props {
 const { tagName } = Astro.props;
 ---
 
-<style>
-  li {
-    list-style-type: none;
-
-    .tag {
-      color: rgb(16, 77, 16);
-      text-decoration: none;
-      position: relative;
-      margin-bottom: 5px;
-      padding-bottom: 3px;
-
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        background-color: rgb(16, 77, 16);
-        width: 0%;
-        height: 2px;
-        transition: width 0.1s ease-in-out;
-      }
-
-      &:hover {
-        &::after {
-          width: 100%;
-        }
-      }
-    }
-  }
-</style>
-
 <li>
   <a class="tag" href=`/tags/${tagName}`>"{tagName}"</a>
 </li>

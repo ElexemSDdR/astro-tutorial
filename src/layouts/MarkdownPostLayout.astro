@@ -20,27 +20,6 @@ const { url, alt } = image;
       background-color: rgb(177, 177, 177);
       border-radius: 10px;
     }
-
-    .tags {
-      display: grid;
-      width: 100%;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      justify-items: start;
-      align-items: center;
-      margin-bottom: 10px;
-      font-size: 0.8rem;
-
-      li {
-        list-style-type: none;
-
-        small {
-          a {
-            color: rgb(16, 77, 16);
-            text-decoration: none;
-          }
-        }
-      }
-    }
   </style>
   <p class="author">Written by <strong>{author}</strong></p>
   <img src={url} alt={alt} loading="lazy" fetchpriority="high" />

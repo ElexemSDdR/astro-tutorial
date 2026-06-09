@@ -10,13 +10,13 @@ const { isOnMdLayout } = Astro.props;
   <ul>
     {
       isOnMdLayout ? (
-        <li><a href="/blog">Back to blogs</a></li>
-        <li><a href="/tags">Blog tags</a></li>
-      ) : (
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/tags">Blog tags</a></li>
+        <li><a class="header-links" href="/blog">Back to blogs</a></li>
+        <li><a class="header-links" href="/tags">Blog tags</a></li>
+      ) : ( 
+        <li><a class="header-links" href="/">Home</a></li>
+        <li><a class="header-links" href="/about">About</a></li>
+        <li><a class="header-links" href="/blog">Blog</a></li>
+        <li><a class="header-links" href="/tags">Blog tags</a></li>
       )
     }
   </ul>
@@ -39,7 +39,7 @@ const { isOnMdLayout } = Astro.props;
         list-style: none;
         flex: 1;
 
-        a {
+        .header-links {
           padding-block: 10px;
           box-shadow: 0px -8px 8px -6px white inset;
           text-align: center;
@@ -50,10 +50,15 @@ const { isOnMdLayout } = Astro.props;
           text-decoration: none;
           font-weight: bold;
           display: flex;
-          transition: background 0.2s ease-in-out;
+          transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
-          &:hover {
+          &:hover, &:focus {
             background-color: rgba(255, 255, 255, 0.074);
+            box-shadow: 0px -12px 8px -6px white inset;
+          }
+
+          &::after {
+            display: none;
           }
         }
       }
