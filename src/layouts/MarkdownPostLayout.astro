@@ -16,6 +16,9 @@ const { url, alt } = image;
     img {
       width: 100%;
       height: auto;
+      aspect-ratio: 16/9;
+      background-color: rgb(177, 177, 177);
+      border-radius: 10px;
     }
 
     .tags {
@@ -40,7 +43,7 @@ const { url, alt } = image;
     }
   </style>
   <p class="author">Written by <strong>{author}</strong></p>
-  <img src={url} alt={alt} />
+  <img src={url} alt={alt} loading="lazy" fetchpriority="high" />
   <slot />
   <strong>Tags/keywords: </strong>
   <ul class="tags">
