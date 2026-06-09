@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/MarkdownPostLayout.astro"
 title: "Astro tutorial finished"
 pubDate: 2026-06-09
 description: "Final step I wanted to do before end completely the tutorial"

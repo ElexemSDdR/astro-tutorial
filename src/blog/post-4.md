@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/MarkdownPostLayout.astro"
 title: "First blog made by Valen (me)"
 pubDate: 2026-06-08
 description: "This is the first post made by me after implementing all of the Astro tutorial"

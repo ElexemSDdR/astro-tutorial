@@ -2,11 +2,10 @@
 import BlogPostLink from "@/components/BlogPostLink.astro";
 import Layout from "@/layouts/Layout.astro";
 import "@/styles/global.css";
+import { getCollection } from "astro:content";
 
 const pageTitle = "Blog";
-const allBlogs = Object.values(
-  import.meta.glob("./posts/*.md", { eager: true }),
-);
+const allBlogs = await getCollection("blog");
 ---
 
 <Layout title={pageTitle} description="See some posts">
@@ -23,7 +22,7 @@ const allBlogs = Object.values(
   <ul class="blogs-list">
     {
       allBlogs.map((post: any) => (
-        <BlogPostLink url={post.url} title={post.frontmatter.title} />
+        <BlogPostLink url={`/posts/${post.id}/`} title={post.data.title} />
       ))
     }
   </ul>
